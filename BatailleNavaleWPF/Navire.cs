@@ -12,7 +12,6 @@ namespace BatailleNavale
 
         public Navire( Case[] carres)
         {
-            //Taille = taille;
             cases = carres;
 
             foreach (Case carre in cases)

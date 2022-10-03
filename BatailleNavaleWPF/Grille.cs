@@ -13,12 +13,13 @@ namespace BatailleNavale
         private const int maxNbColonnes = 100;
 
         private const int tailleGrilleDefaut = 10;
+        int taille;
 
         public int NbLignes { get; }
         public int NbColonnes { get; }
 
         public Matrice2D Matrice;
-
+        SousMarin SousMarin;
         // Constructeur
         public Grille(int nbLignes = tailleGrilleDefaut, int nbColonnes = tailleGrilleDefaut)
         {
@@ -28,6 +29,7 @@ namespace BatailleNavale
             // Nouvelle matrice vide (aucune case occupée au départ)
             Matrice = new Matrice2D(NbLignes, NbColonnes) { IndexDepart = 1 };
 
+            taille = SousMarin.Taille;
 
             // On place les navires pour un début de partie
             PlacerNavire();
@@ -35,7 +37,7 @@ namespace BatailleNavale
 
         private void PlacerNavire()
         {
-            Case[] casesSousMarin1 = TrouverPlace(1);
+            Case[] casesSousMarin1 = TrouverPlace(taille);
             new SousMarin(casesSousMarin1);
             Case[] casesSousMarin = TrouverPlace(1);
             new SousMarin(casesSousMarin);
