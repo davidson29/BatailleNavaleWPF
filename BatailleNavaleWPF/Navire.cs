@@ -1,17 +1,18 @@
-﻿using System;
+﻿using BatailleNavaleWPF;
+using System;
 
 namespace BatailleNavale
 {
-    class Navire
+    public abstract class Navire : INavire
     {
-        public TypeNavire Type { get; }
+        public abstract int Taille { get; }
         public bool Coule { get => EstCoule(); }
 
         private readonly Case[] cases;
 
-        public Navire (TypeNavire type, Case[] carres)
+        public Navire( Case[] carres)
         {
-            Type = type;
+            //Taille = taille;
             cases = carres;
 
             foreach (Case carre in cases)

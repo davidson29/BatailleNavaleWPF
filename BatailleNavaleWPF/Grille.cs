@@ -28,20 +28,27 @@ namespace BatailleNavale
             // Nouvelle matrice vide (aucune case occupée au départ)
             Matrice = new Matrice2D(NbLignes, NbColonnes) { IndexDepart = 1 };
 
+
             // On place les navires pour un début de partie
-            PlacerNavire(TypeNavire.SousMarin);
-            PlacerNavire(TypeNavire.SousMarin);
-            PlacerNavire(TypeNavire.Destroyer);
-            PlacerNavire(TypeNavire.Destroyer);
-            PlacerNavire(TypeNavire.Cuirasse);
-            PlacerNavire(TypeNavire.Patrouilleur);
-            PlacerNavire(TypeNavire.PorteAvions);
+            PlacerNavire();
         }
 
-        private void PlacerNavire(TypeNavire typeNavire)
+        private void PlacerNavire()
         {
-            Case[] cases = TrouverPlace((int)typeNavire);
-            new Navire(typeNavire, cases);
+            Case[] casesSousMarin1 = TrouverPlace(1);
+            new SousMarin(casesSousMarin1);
+            Case[] casesSousMarin = TrouverPlace(1);
+            new SousMarin(casesSousMarin);
+            Case[] casesDestroyer = TrouverPlace(2);
+            new Destroyer(casesDestroyer);
+            Case[] casesDestroyer1 = TrouverPlace(2);
+            new Destroyer(casesDestroyer1);
+            Case[] casesCuirasse = TrouverPlace(4);
+            new Cuirasse(casesCuirasse);
+            Case[] casesPatrouilleur = TrouverPlace(3);
+            new Patrouilleur(casesPatrouilleur);
+            Case[] casesPorteAvion = TrouverPlace(5);
+            new PorteAvions(casesPorteAvion);
         }
 
         // Trouve une place vide au hasard pour le nombre de cases demandé (la méthode assume qu'il y a de la place)
@@ -144,21 +151,21 @@ namespace BatailleNavale
                     if (GetNavire(i, j, out Navire navire))
                     {
                         char type = ' ';
-                        switch (navire.Type)
+                        switch (navire.Taille)
                         {
-                            case TypeNavire.Cuirasse:
+                            case 4:
                                 type = 'C';
                                 break;
-                            case TypeNavire.Destroyer:
+                            case 2:
                                 type = 'D';
                                 break;
-                            case TypeNavire.Patrouilleur:
+                            case 3:
                                 type = 'P';
                                 break;
-                            case TypeNavire.PorteAvions:
+                            case 5:
                                 type = 'A';
                                 break;
-                            case TypeNavire.SousMarin:
+                            case 1:
                                 type = 'S';
                                 break;
                         }
