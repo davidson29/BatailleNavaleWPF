@@ -8,8 +8,10 @@ namespace BatailleNavale
 {
     class Patrouilleur:Navire
     {
+        // Variable d'intance avec la taille
         public const int Longueur = 3;
 
+        // Constructeur de la classe
         public Patrouilleur(Case[] carre):base(carre)
         {
             Taille = Longueur;
