@@ -3,9 +3,13 @@ using System;
 
 namespace BatailleNavale
 {
+    // Classe abstrait qui sera implementée par les enfants
     public abstract class Navire : INavire
     {
+        // Propriété qui devra etre modifié par les enfants
         public abstract int Taille { get; }
+
+        // Proprité booléen qui retourne la sortie de la methode EstCoule()
         public bool Coule { get => EstCoule(); }
 
         private readonly Case[] cases;
