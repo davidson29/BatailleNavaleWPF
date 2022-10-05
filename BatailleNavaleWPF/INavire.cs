@@ -8,8 +8,13 @@ namespace BatailleNavale
 {
     public interface INavire
     {
-        int Taille { get; }
+        // Propriété qui devrait etre implementé par l'enfant 
+        int Taille { get; set; }
+
+        // Propriété qui devrait etre implementé par l'enfant 
         bool Coule { get; }
 
+        // Methode qui sera implémentée par Navire()
+        bool EstCoule();
     }
 }

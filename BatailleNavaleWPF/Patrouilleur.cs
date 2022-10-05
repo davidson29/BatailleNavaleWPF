@@ -8,15 +8,11 @@ namespace BatailleNavale
 {
     class Patrouilleur:Navire
     {
-        private const int Longueur = 3;
+        public const int Longueur = 3;
 
-        public override int Taille
-        {
-            get { return Longueur; }
-        }
         public Patrouilleur(Case[] carre):base(carre)
         {
-
+            Taille = Longueur;
         }
     }
 }

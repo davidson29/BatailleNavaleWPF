@@ -8,15 +8,11 @@ namespace BatailleNavale
 {
     class Destroyer : Navire
     {
-        private const int Longueur = 2;
+        public const int Longueur = 2;
 
-        public override int Taille
-        {
-            get { return Longueur; }
-        }
         public Destroyer(Case[] carres) : base(carres)
         {
-
+            Taille = Longueur;
         }
     }
 }

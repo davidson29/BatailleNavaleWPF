@@ -7,13 +7,14 @@ namespace BatailleNavale
     public abstract class Navire : INavire
     {
         // Propriété qui devra etre modifié par les enfants
-        public abstract int Taille { get; }
+        public int Taille { get; set; }
 
         // Proprité booléen qui retourne la sortie de la methode EstCoule()
         public bool Coule { get => EstCoule(); }
 
         private readonly Case[] cases;
 
+        // Constructeur
         public Navire( Case[] carres)
         {
             cases = carres;
@@ -24,7 +25,7 @@ namespace BatailleNavale
             }
         }
 
-        private bool EstCoule()
+        public bool EstCoule()
         {
             foreach (Case carre in cases)
             {

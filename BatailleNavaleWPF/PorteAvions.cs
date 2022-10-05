@@ -8,15 +8,11 @@ namespace BatailleNavale
 {
     class PorteAvions:Navire
     {
-        private const int Longueur = 5;
+        public const int Longueur = 5;
 
-        public override int Taille
-        {
-            get { return Longueur; }
-        }
         public PorteAvions(Case[] carre):base(carre)
         {
-
+            Taille = Longueur;
         }
     }
 }

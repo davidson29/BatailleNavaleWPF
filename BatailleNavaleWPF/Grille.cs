@@ -29,25 +29,13 @@ namespace BatailleNavale
             Matrice = new Matrice2D(NbLignes, NbColonnes) { IndexDepart = 1 };
 
             // On place les navires pour un début de partie
-            PlacerNavire();
-        }
-
-        private void PlacerNavire()
-        {
-            Case[] casesSousMarin1 = TrouverPlace(1);
-            new SousMarin(casesSousMarin1);
-            Case[] casesSousMarin = TrouverPlace(1);
-            new SousMarin(casesSousMarin);
-            Case[] casesDestroyer = TrouverPlace(2);
-            new Destroyer(casesDestroyer);
-            Case[] casesDestroyer1 = TrouverPlace(2);
-            new Destroyer(casesDestroyer1);
-            Case[] casesCuirasse = TrouverPlace(4);
-            new Cuirasse(casesCuirasse);
-            Case[] casesPatrouilleur = TrouverPlace(3);
-            new Patrouilleur(casesPatrouilleur);
-            Case[] casesPorteAvion = TrouverPlace(5);
-            new PorteAvions(casesPorteAvion);
+            new SousMarin(TrouverPlace(SousMarin.Longueur));
+            new SousMarin(TrouverPlace(SousMarin.Longueur));
+            new Destroyer(TrouverPlace(Destroyer.Longueur));
+            new Destroyer(TrouverPlace(Destroyer.Longueur));
+            new Cuirasse(TrouverPlace(Cuirasse.Longueur));
+            new Patrouilleur(TrouverPlace(Patrouilleur.Longueur));
+            new PorteAvions(TrouverPlace(PorteAvions.Longueur));
         }
 
         // Trouve une place vide au hasard pour le nombre de cases demandé (la méthode assume qu'il y a de la place)
@@ -152,19 +140,19 @@ namespace BatailleNavale
                         char type = ' ';
                         switch (navire.Taille)
                         {
-                            case 4:
+                            case Cuirasse.Longueur:
                                 type = 'C';
                                 break;
-                            case 2:
+                            case Destroyer.Longueur:
                                 type = 'D';
                                 break;
-                            case 3:
+                            case Patrouilleur.Longueur:
                                 type = 'P';
                                 break;
-                            case 5:
+                            case PorteAvions.Longueur:
                                 type = 'A';
                                 break;
-                            case 1:
+                            case SousMarin.Longueur:
                                 type = 'S';
                                 break;
                         }
